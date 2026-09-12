@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="向靖宇 · 电气工程及其自动化 · 个人简历">
+<title>向靖宇 | 电气工程师 · 个人简历</title>
+<style>
+  :root{
+    --blue:#1a5276;
+    --blue-deep:#154360;
+    --blue-soft:#eaf2f8;
+    --ink:#2c3e50;
+    --ink-soft:#5d6d7e;
+    --line:#d5dbdb;
+    --bg:#f4f6f7;
+    --card:#ffffff;
+    --todo-bg:#fdf6e3;
+    --todo-border:#e6c069;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Microsoft YaHei","PingFang SC","Helvetica Neue",Arial,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.75;
+    font-size:15px;
+  }
+  .page{max-width:1000px;margin:0 auto;padding:32px 20px 64px}
+
+  /* ===== 头部名片 ===== */
+  .hero{
+    background:linear-gradient(135deg,var(--blue-deep) 0%,var(--blue) 70%);
+    color:#fff;border-radius:14px;padding:44px 40px 38px;
+    box-shadow:0 8px 24px rgba(21,67,96,.25);
+  }
+  .hero h1{font-size:34px;letter-spacing:6px;font-weight:700}
+  .hero .role{margin-top:6px;font-size:16px;opacity:.92;letter-spacing:2px}
+  .hero .meta{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:24px;font-size:14px}
+  .hero .meta span{display:inline-flex;align-items:center;gap:7px;opacity:.95}
+  .hero svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;flex:none}
+  .tagline{
+    margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.25);
+    font-size:13.5px;opacity:.85;
+  }
+
+  /* ===== 双栏布局 ===== */
+  .grid{display:grid;grid-template-columns:330px 1fr;gap:22px;margin-top:22px}
+  .col{display:flex;flex-direction:column;gap:22px;min-width:0}
+
+  .card{
+    background:var(--card);border-radius:12px;padding:24px 26px;
+    box-shadow:0 2px 10px rgba(44,62,80,.06);
+  }
+  .card h2{
+    font-size:17px;color:var(--blue);letter-spacing:2px;
+    display:flex;align-items:center;gap:9px;margin-bottom:16px;
+  }
+  .card h2::before{
+    content:"";width:4px;height:16px;background:var(--blue);border-radius:2px;flex:none;
+  }
+
+  /* ===== 侧栏 ===== */
+  .edu-school{font-size:16px;font-weight:700;margin-bottom:2px}
+  .edu-major{color:var(--blue);font-weight:600;font-size:14px}
+  .edu-meta{color:var(--ink-soft);font-size:13px;margin:6px 0 10px}
+  .edu-row{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{
+    background:var(--blue-soft);color:var(--blue-deep);
+    font-size:12px;padding:3px 10px;border-radius:20px;margin:0 4px 6px 0;
+  }
+  .skill-item{margin-bottom:12px}
+  .skill-item .name{font-weight:600;font-size:13.5px;margin-bottom:5px}
+  .skill-item .bar{
+    height:6px;background:#e8ecee;border-radius:3px;overflow:hidden;
+  }
+  .skill-item .fill{height:100%;background:linear-gradient(90deg,var(--blue),#2e86c1);border-radius:3px}
+  .skill-note{font-size:12.5px;color:var(--ink-soft);margin-top:4px}
+
+  /* ===== 主栏条目 ===== */
+  .entry{padding:4px 0 18px}
+  .entry + .entry{border-top:1px dashed var(--line);padding-top:18px}
+  .entry-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .entry-title{font-size:15.5px;font-weight:700}
+  .entry-sub{font-size:12.5px;color:var(--blue);font-weight:600}
+  .entry-time{font-size:12.5px;color:var(--ink-soft);white-space:nowrap}
+  .badge{
+    display:inline-block;background:var(--blue-soft);color:var(--blue-deep);
+    font-size:12px;font-weight:600;padding:1px 10px;border-radius:12px;margin-left:8px;
+  }
+  .entry ul{margin:10px 0 0 1.2em}
+  .entry li{margin-bottom:7px}
+  .entry li::marker{color:var(--blue)}
+
+  /* ===== 待补充占位 ===== */
+  .todo{
+    background:var(--todo-bg);border:1px dashed var(--todo-border);
+    border-radius:6px;padding:2px 8px;color:#9c7a2c;font-size:.92em;
+  }
+
+  /* ===== 页脚 ===== */
+  .footer{
+    text-align:center;color:var(--ink-soft);font-size:12px;margin-top:30px;
+  }
+  .footer a{color:var(--blue);text-decoration:none}
+
+  /* ===== 响应式 ===== */
+  @media (max-width:760px){
+    .grid{grid-template-columns:1fr}
+    .hero{padding:32px 24px}
+    .hero h1{font-size:26px;letter-spacing:4px}
+    .entry-head{flex-direction:column;align-items:flex-start}
+  }
+
+  /* ===== 打印（Ctrl+P 可直接导出 PDF）===== */
+  @media print{
+    body{background:#fff;font-size:12.5px}
+    .page{max-width:100%;padding:0}
+    .hero{border-radius:0;box-shadow:none;padding:24px 8px}
+    .grid{grid-template-columns:1fr;gap:14px}
+    .card{box-shadow:none;padding:14px 8px;border:1px solid #eee}
+    .footer{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ================= 头部 ================= -->
+  <header class="hero">
+    <h1>向靖宇</h1>
+    <div class="role">电气工程及其自动化 · 本科在读 | 求职意向：电气工程师（电气设计 / 自动化方向）</div>
+    <div class="meta">
+      <span>
+        <svg viewBox="0 0 24 24"><path d="M4 5c0-1 .9-2 2-2h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM8 7h8M8 11h8M8 15h5"/></svg>
+        攀枝花学院 · 2024 – 2028
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24"><path d="M4 6h16M4 6l8 7 8-7M4 6v12h16V6"/></svg>
+        xiangjingyuu@qq.com
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-3 2c1 3 3 5 6 6l2-3 5 2v4a2 2 0 0 1-2 2C10 22 2 14 2 6a2 2 0 0 1 2-2z" transform="scale(.92) translate(1,1)"/></svg>
+        134-3831-1922
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <span class="todo">城市意向（待补充）</span>
+      </span>
+    </div>
+    <div class="tagline">
+      扎实的电气专业基础与较强的动手实践能力；先后在蓝桥杯、睿抗机器人大赛中获省级奖项，编程与动手调试能力经过赛事的检验。
+    </div>
+  </header>
+
+  <div class="grid">
+    <!-- ================= 侧栏 ================= -->
+    <aside class="col">
+
+      <section class="card">
+        <h2>教育背景</h2>
+        <div class="edu-school">攀枝花学院</div>
+        <div class="edu-major">电气工程及其自动化 · 本科</div>
+        <div class="edu-meta">2024.09 – 2028.06</div>
+        <div class="edu-row">
+          <span class="chip">电路原理</span><span class="chip">模拟电子技术</span>
+          <span class="chip">数字电子技术</span><span class="chip">电机与拖动</span>
+          <span class="chip">自动控制原理</span><span class="chip">电力电子技术</span>
+        </div>
+        <div style="margin-top:10px;font-size:13px">
+          奖项：蓝桥杯大赛省级三等奖（2025）、睿抗机器人开发者大赛省级三等奖（2026）
+        </div>
+        <div style="margin-top:6px"><span class="todo">GPA / 奖学金（有则补充）</span></div>
+      </section>
+
+      <section class="card">
+        <h2>技能证书</h2>
+        <div class="skill-item">
+          <div class="name">C 语言（蓝桥杯备赛强化）</div>
+          <div class="bar"><div class="fill" style="width:78%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="name">MATLAB / Multisim 仿真</div>
+          <div class="bar"><div class="fill" style="width:70%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="name">AutoCAD 电气制图</div>
+          <div class="bar"><div class="fill" style="width:65%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="name">Altium Designer</div>
+          <div class="bar"><div class="fill" style="width:55%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="name">PLC 基础</div>
+          <div class="bar"><div class="fill" style="width:45%"></div></div>
+        </div>
+        <div class="skill-note">大学英语四级（CET-4：427 分）</div>
+        <div class="skill-note todo">其他证书 / 专利 / 软著（待补充）</div>
+      </section>
+
+      <section class="card">
+        <h2>校园经历</h2>
+        <div class="entry">
+          <div class="entry-head">
+            <div>
+              <div class="entry-title" style="font-size:14.5px">学生社团团工委办公中心</div>
+              <div class="entry-sub">学生教学信息员</div>
+            </div>
+            <div class="entry-time todo">任职时间</div>
+          </div>
+          <ul>
+            <li>加入电子爱好者协会、动漫社，参与社团活动的组织与执行；</li>
+            <li>在办公中心处理社团事务对接与材料整理；作为教学信息员，定期收集并反馈同学的教学意见。</li>
+          </ul>
+        </div>
+      </section>
+
+    </aside>
+
+    <!-- ================= 主栏 ================= -->
+    <main class="col">
+
+      <section class="card">
+        <h2>项目与竞赛经历</h2>
+
+        <div class="entry">
+          <div class="entry-head">
+            <div>
+              <span class="entry-title">蓝桥杯全国软件和信息技术专业人才大赛</span>
+              <span class="badge">省级三等奖</span>
+            </div>
+            <div class="entry-time">2025</div>
+          </div>
+          <ul>
+            <li>完成 C 语言与算法专项训练，整理历年省赛真题的解题思路
+              <span class="todo">可补充：参赛方向（单片机 / 嵌入式）</span>；</li>
+            <li>省赛中获三等奖，备赛过程打牢了编程与调试基础。</li>
+          </ul>
+          <div><span class="todo">待补充：备赛周期、每周训练量、掌握的具体技能</span></div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <div>
+              <span class="entry-title">睿抗机器人开发者大赛（RAICOM）</span>
+              <span class="badge">省级三等奖</span>
+            </div>
+            <div class="entry-time">2026</div>
+          </div>
+          <ul>
+            <li>与队友分工完成机器人搭建、程序编写与联调
+              <span class="todo">可补充：具体负责的模块</span>；</li>
+            <li>多轮调试后出战省赛，获省级三等奖。</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>实习经历</h2>
+        <div class="entry">
+          <div class="entry-head">
+            <div>
+              <div class="entry-title"><span class="todo">实习单位（示例，待替换）</span></div>
+              <div class="entry-sub">电气工程实习生</div>
+            </div>
+            <div class="entry-time todo">实习时间</div>
+          </div>
+          <ul>
+            <li>参与工厂配电系统改造项目，协助完成 5 个配电回路的图纸绘制与设备选型；</li>
+            <li>使用 AutoCAD 完成电气原理图与接线图绘制，累计出图 30+ 张，一次性审核通过率 95%；</li>
+            <li>参与现场调试与巡检，记录并跟踪 20+ 项设备缺陷，协助编制检修报告。</li>
+          </ul>
+          <div style="margin-top:8px"><span class="todo">整段为示例内容：有真实实习请提供，没有可整段删除</span></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>自我评价</h2>
+        <ul style="margin-left:1.2em">
+          <li>具备扎实的电气专业基础与较强的动手实践能力，做事认真细致，习惯以数据记录验证工作成果；</li>
+          <li>先后在蓝桥杯、睿抗机器人大赛中获省级奖项，编程与动手调试能力经过赛事检验；</li>
+          <li><span class="todo">第三条（可选）：补充一句与目标岗位相关的个人特质</span></li>
+        </ul>
+      </section>
+
+    </main>
+  </div>
+
+  <div class="footer">
+    © 2026 向靖宇 · 简历在线版 · 联系邮箱 xiangjingyuu@qq.com
+  </div>
+</div>
+</body>
+</html>
